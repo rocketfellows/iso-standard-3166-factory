@@ -23,14 +23,45 @@ class CountryFactoryTest extends TestCase
     }
 
     /**
+     * @dataProvider getSuccessCreateCountryByNameProvidedData
+     */
+    public function testSuccessCreateCountryByName(string $countryName, Country $expectedCountry): void
+    {
+        $this->assertEqualsCountry($expectedCountry, $this->countryFactory->createByName($countryName));
+    }
+
+    public function getSuccessCreateCountryByNameProvidedData(): array
+    {
+        return [
+            'Switzerland country name' => [
+                'countryName' => 'Switzerland',
+                'expectedCountry' => new Country('Switzerland', 'CH', 'CHE', '756'),
+            ],
+            'Syrian Arab Republic country name' => [
+                'countryName' => 'Syrian Arab Republic',
+                'expectedCountry' => new Country('Syrian Arab Republic', 'SY', 'SYR', '760'),
+            ],
+            'Taiwan, Province of China country name' => [
+                'countryName' => 'Taiwan, Province of China',
+                'expectedCountry' => new Country('Taiwan, Province of China', 'TW', 'TWN', '158'),
+            ],
+            'Paraguay country name' => [
+                'countryName' => 'Paraguay',
+                'expectedCountry' => new Country('Paraguay', 'PY', 'PRY', '600'),
+            ],
+            'Montserrat country name' => [
+                'countryName' => 'Montserrat',
+                'expectedCountry' => new Country('Montserrat', 'MS', 'MSR', '500'),
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider getSuccessCreateCountryByCodeProvidedData
      */
     public function testSuccessCreateCountryByCode(string $code, Country $expectedCountry): void
     {
-        $actualCountry = $this->countryFactory->createByCode($code);
-
-        $this->assertInstanceOf(Country::class, $actualCountry);
-        $this->assertEquals($expectedCountry, $actualCountry);
+        $this->assertEqualsCountry($expectedCountry, $this->countryFactory->createByCode($code));
     }
 
     public function getSuccessCreateCountryByCodeProvidedData(): array
@@ -97,5 +128,11 @@ class CountryFactoryTest extends TestCase
                 'expectedExceptionClass' => UnknownCountryCodeException::class,
             ],
         ];
+    }
+
+    private function assertEqualsCountry(Country $expectedCountry, Country $actualCountry): void
+    {
+        $this->assertInstanceOf(Country::class, $actualCountry);
+        $this->assertEquals($expectedCountry, $actualCountry);
     }
 }
