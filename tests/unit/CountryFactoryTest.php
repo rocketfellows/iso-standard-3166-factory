@@ -27,7 +27,10 @@ class CountryFactoryTest extends TestCase
      */
     public function testSuccessCreateCountryByCode(string $code, Country $expectedCountry): void
     {
-        $this->assertEquals($expectedCountry, $this->countryFactory->createByCode($code));
+        $actualCountry = $this->countryFactory->createByCode($code);
+
+        $this->assertInstanceOf(Country::class, $actualCountry);
+        $this->assertEquals($expectedCountry, $actualCountry);
     }
 
     public function getSuccessCreateCountryByCodeProvidedData(): array
