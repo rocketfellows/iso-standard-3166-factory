@@ -70,6 +70,10 @@ class CountryFactoryTest extends TestCase
     public function getHandleCreateCountryByInvalidNameProvidedData(): array
     {
         return [
+            'empty country name' => [
+                'countryName' => '',
+                'expectedExceptionClass' => EmptyCountryNameException::class
+            ],
             'unknown country name' => [
                 'countryName' => 'Foo bar',
                 'expectedExceptionClass' => UnknownCountryNameException::class,
