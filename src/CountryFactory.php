@@ -5,9 +5,12 @@ namespace rocketfellows\ISOStandard3166Factory;
 use arslanimamutdinov\ISOStandard3166\Country;
 use arslanimamutdinov\ISOStandard3166\ISO3166;
 use rocketfellows\ISOStandard3166Factory\exceptions\EmptyCountryCodeException;
+use rocketfellows\ISOStandard3166Factory\exceptions\EmptyCountryNameException;
 use rocketfellows\ISOStandard3166Factory\exceptions\UnknownCountryCodeException;
+use rocketfellows\ISOStandard3166Factory\exceptions\UnknownCountryNameException;
 use rocketfellows\ISOStandard3166Validation\validators\Alpha2;
 use rocketfellows\ISOStandard3166Validation\validators\Alpha3;
+use rocketfellows\ISOStandard3166Validation\validators\Name;
 use rocketfellows\ISOStandard3166Validation\validators\NumericCode;
 
 class CountryFactory
@@ -27,6 +30,29 @@ class CountryFactory
 
         if (!$country instanceof Country) {
             throw new UnknownCountryCodeException();
+        }
+
+        return $country;
+    }
+
+    /**
+     * @throws UnknownCountryNameException
+     * @throws EmptyCountryNameException
+     */
+    public function createByName(string $countryName): Country
+    {
+        if (empty($countryName)) {
+            throw new EmptyCountryNameException();
+        }
+
+        if (!Name::create()->isValid($countryName)) {
+            throw new UnknownCountryNameException();
+        }
+
+        $country = ISO3166::getAllByNames([$countryName])[0] ?? null;
+
+        if (!$country instanceof Country) {
+            throw new UnknownCountryNameException();
         }
 
         return $country;
