@@ -8,7 +8,9 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "rocketfellows/iso-standard-3166-validation": "^1.0",
+        "arslanimamutdinov/iso-standard-3166": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5",
