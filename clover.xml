@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1648587867">
-  <project timestamp="1648587867">
-    <metrics files="0" loc="0" ncloc="0" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+<coverage generated="1673698702">
+  <project timestamp="1673698702">
+    <file name="/app/src/CountryFactory.php">
+      <class name="rocketfellows\ISOStandard3166Factory\CountryFactory" namespace="global">
+        <metrics complexity="7" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="14" coveredelements="12"/>
+      </class>
+      <line num="19" type="method" name="createByCode" visibility="public" complexity="2" crap="2.01" count="11"/>
+      <line num="21" type="stmt" count="11"/>
+      <line num="23" type="stmt" count="7"/>
+      <line num="24" type="stmt" count="7"/>
+      <line num="25" type="stmt" count="4"/>
+      <line num="26" type="stmt" count="4"/>
+      <line num="28" type="stmt" count="7"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="7"/>
+      <line num="39" type="method" name="validateCode" visibility="private" complexity="5" crap="5" count="11"/>
+      <line num="41" type="stmt" count="11"/>
+      <line num="42" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="10"/>
+      <line num="46" type="stmt" count="3"/>
+      <metrics loc="50" ncloc="42" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="14" coveredelements="12"/>
+    </file>
+    <file name="/app/src/exceptions/CountryFactoryException.php">
+      <class name="rocketfellows\ISOStandard3166Factory\exceptions\CountryFactoryException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/app/src/exceptions/EmptyCountryCodeException.php">
+      <class name="rocketfellows\ISOStandard3166Factory\exceptions\EmptyCountryCodeException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/app/src/exceptions/UnknownCountryCodeException.php">
+      <class name="rocketfellows\ISOStandard3166Factory\exceptions\UnknownCountryCodeException" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <metrics files="4" loc="76" ncloc="68" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="11" elements="14" coveredelements="12"/>
   </project>
 </coverage>
