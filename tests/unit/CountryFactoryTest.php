@@ -5,6 +5,7 @@ namespace rocketfellows\ISOStandard3166Factory\tests\unit;
 use arslanimamutdinov\ISOStandard3166\Country;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\ISOStandard3166Factory\exceptions\EmptyCountryCodeException;
+use rocketfellows\ISOStandard3166Factory\exceptions\UnknownCountryCodeException;
 
 class CountryFactoryTest extends TestCase
 {
