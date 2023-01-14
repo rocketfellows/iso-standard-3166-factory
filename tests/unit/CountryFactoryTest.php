@@ -60,4 +60,36 @@ class CountryFactoryTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider getHandleCreateCountryByInvalidCodeProvidedData
+     */
+    public function testHandleCreateCountryByInvalidCode(string $code, string $expectedExceptionClass): void
+    {
+        $this->expectException($expectedExceptionClass);
+
+        $this->countryFactory->createByCode($code);
+    }
+
+    public function getHandleCreateCountryByInvalidCodeProvidedData(): array
+    {
+        return [
+            'empty code' => [
+                'code' => '',
+                'expectedExceptionClass' => EmptyCountryCodeException(),
+            ],
+            'unknown alpha2 code' => [
+                'code' => 'BU',
+                'expectedExceptionClass' => UnknownCountryCodeException(),
+            ],
+            'unknown alpha3 code' => [
+                'code' => 'BUE',
+                'expectedExceptionClass' => UnknownCountryCodeException(),
+            ],
+            'unknown numeric code' => [
+                'code' => '111',
+                'expectedExceptionClass' => UnknownCountryCodeException(),
+            ],
+        ];
+    }
 }
