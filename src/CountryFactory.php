@@ -42,10 +42,7 @@ class CountryFactory
             throw new EmptyCountryCodeException();
         }
 
-        if (!Alpha2::create()->isValid($code) &&
-            !Alpha3::create()->isValid($code) &&
-            !NumericCode::create()->isValid($code)
-        ) {
+        if (!Alpha2::create()->isValid($code) && !Alpha3::create()->isValid($code) && !NumericCode::create()->isValid($code)) {
             throw new UnknownCountryCodeException();
         }
     }
