@@ -57,6 +57,30 @@ class CountryFactoryTest extends TestCase
     }
 
     /**
+     * @dataProvider getHandleCreateCountryByInvalidNameProvidedData
+     */
+    public function testHandleCreateCountryByInvalidName(string $countryName, string $expectedExceptionClass): void
+    {
+        $this->expectException($expectedExceptionClass);
+
+        $this->countryFactory->createByName($countryName);
+    }
+
+    public function getHandleCreateCountryByInvalidNameProvidedData(): array
+    {
+        return [
+            'unknown country name' => [
+                'countryName' => 'Foo bar',
+                'expectedExceptionClass' => UnknownCountryNameException::class,
+            ],
+            'invalid Switzerland country name' => [
+                'countryName' => 'Switerland',
+                'expectedExceptionClass' => UnknownCountryNameException::class,
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider getSuccessCreateCountryByCodeProvidedData
      */
     public function testSuccessCreateCountryByCode(string $code, Country $expectedCountry): void
