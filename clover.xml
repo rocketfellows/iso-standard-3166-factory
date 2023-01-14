@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1673700088">
-  <project timestamp="1673700088">
+<coverage generated="1673701518">
+  <project timestamp="1673701518">
     <file name="/app/src/CountryFactory.php">
       <class name="rocketfellows\ISOStandard3166Factory\CountryFactory" namespace="global">
         <metrics complexity="11" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="18" elements="23" coveredelements="19"/>
