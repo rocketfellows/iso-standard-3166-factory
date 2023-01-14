@@ -4,6 +4,7 @@ namespace rocketfellows\ISOStandard3166Factory\tests\unit;
 
 use arslanimamutdinov\ISOStandard3166\Country;
 use PHPUnit\Framework\TestCase;
+use rocketfellows\ISOStandard3166Factory\exceptions\EmptyCountryCodeException;
 
 class CountryFactoryTest extends TestCase
 {
@@ -76,19 +77,19 @@ class CountryFactoryTest extends TestCase
         return [
             'empty code' => [
                 'code' => '',
-                'expectedExceptionClass' => EmptyCountryCodeException(),
+                'expectedExceptionClass' => EmptyCountryCodeException::class,
             ],
             'unknown alpha2 code' => [
                 'code' => 'BU',
-                'expectedExceptionClass' => UnknownCountryCodeException(),
+                'expectedExceptionClass' => UnknownCountryCodeException::class,
             ],
             'unknown alpha3 code' => [
                 'code' => 'BUE',
-                'expectedExceptionClass' => UnknownCountryCodeException(),
+                'expectedExceptionClass' => UnknownCountryCodeException::class,
             ],
             'unknown numeric code' => [
                 'code' => '111',
-                'expectedExceptionClass' => UnknownCountryCodeException(),
+                'expectedExceptionClass' => UnknownCountryCodeException::class,
             ],
         ];
     }
